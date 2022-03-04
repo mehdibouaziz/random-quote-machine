@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+body {
+margin: 0;
+padding: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.quote-box {
+max-width: 80%;
+background-color: rgba(255,255,255,0.3);
+padding: 30px 40px;
+border-radius: 20px;
+border-left: 5px solid;
+border-color: rgb(230, 255, 247);
+}
+.quote-box:after {
+content: '';
+margin-top: -30px;
+padding-top: 0px;
+position: relative;
+bottom: -60px;
+left: 30px;
+border-width: 30px 0 0 30px;
+border-style: solid;
+border-color: rgba(255,255,255,0.3) transparent;
+display: block;
+width: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+display: flex;
+margin: 0;
+
+max-width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#appContainer {
+padding: 0;
+height: 100vh;
+width: 100vw;
+justify-content: center;
+align-items: center;
+
+color: #5d8584;
+background-color: #88bdbc;
+
+transition: color 1s, background-color 1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#btnContainer {
+justify-content: space-between;
+}
+
+#new-quote{
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+}
+#new-quote:hover{
+  box-shadow: inset 0 0 100px 100px rgba(255,255,255, 0.2);
+}
+
+.btn{
+margin: 10px 0 0 0;
+}
+.btn-info{
+color: white;
+}
+a .btn{
+color: white;
+text-decoration: none;
+}
+
+h1 { /* quote text */
+text-align: left;
+}
+
+h2 { /* author text */
+text-align: right;
+margin: 0 60px 30px 0;
 }
