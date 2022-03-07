@@ -14,7 +14,7 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 }
 
 .quote-box {
-max-width: 80%;
+max-width: 70%;
 background-color: rgba(255,255,255,0.3);
 padding: 30px 40px;
 border-radius: 20px;
@@ -33,6 +33,12 @@ border-style: solid;
 border-color: rgba(255,255,255,0.3) transparent;
 display: block;
 width: 0;
+}
+
+.placeholder-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
 }
 
 .container {
@@ -79,11 +85,11 @@ color: white;
 text-decoration: none;
 }
 
-h1 { /* quote text */
+.text { /* quote text */
 text-align: left;
 }
 
-h2 { /* author text */
+.author { /* author text */
 text-align: right;
 margin: 0 60px 30px 0;
 }
