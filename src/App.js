@@ -25,6 +25,19 @@ function App() {
     setColorNum(colorRand);
   };
 
+  const fontScaler = (x) => {
+    if (window.screen.availWidth > 992) {
+      return {fontSize: '2em'}
+    } else if (x <= 100) {
+      return {fontSize: '2em'}
+    } else if (x<=250) {
+      let y = Math.round(((x-100)/150 *(-1) + 2)*10) / 10
+      return {fontSize: y+'em'}
+    } else {
+      return {fontSize: '1em'}
+    }
+  };
+
   /* fallback quote generator in case of API error */
   const localQuote = () => {
     const rand = Math.floor(Math.random() * quoteLib.length);
@@ -51,6 +64,7 @@ function App() {
     }
   };
 
+
   /* generates a quote once on page load */
   useEffect(requestQuote,[])
 
@@ -64,10 +78,13 @@ function App() {
       }}
       >
         <div className='quote-box' id='quote-box'>
-          <h1 className='text' id='text' style={isLoading ? {display:'none'}:{display:'block'}}>"{quote}"</h1>
-          <h2 className='author' id='author' style={isLoading ? {display:'none'}:{display:'block'}}> - {author}</h2>
 
-          <div style={isLoading ? {display:'block', width:'40vw'}:{display:'none'}}>
+          <div style={fontScaler(quote.length)}>
+            <h1 className='quote content' id='text' style={isLoading ? {display:'none'}:{display:'block'}}>"{quote}"</h1>
+          </div>
+          <h2 className='author content' id='author' style={isLoading ? {display:'none'}:{display:'block'}}> - {author}</h2>
+
+          <div style={isLoading ? {display:'block', width:'40vw', marginBottom: '15px'}:{display:'none'}}>
             <div className='placeholder-box placeholder-glow'>
               <span class="placeholder col-7"></span>
               <span class="placeholder col-4"></span>
@@ -75,7 +92,6 @@ function App() {
               <span class="placeholder col-6"></span>
               <span class="placeholder col-8"></span>
             </div>
-
             <div className='placeholder-box placeholder-glow' style={{justifyContent:'flex-end',margin:'15px 0 0 0',fontSize:'1.5em'}}>
               <span class="placeholder col-4 placeholder"></span>
             </div>
@@ -86,9 +102,11 @@ function App() {
               onClick={requestQuote}
               className="btn btn-light btn-sm"
               id='new-quote'
+              disabled={isLoading}
               style={{backgroundColor: colorLib[colorNum][1], color: colorLib[colorNum][0]}}
               >New Quote</button>
           </div>
+
         </div>
       </div>
   );
